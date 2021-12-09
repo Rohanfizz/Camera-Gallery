@@ -1,0 +1,171 @@
+*{
+    box-sizing: border-box;
+    cursor: default;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+.material-icons{
+    color: white;
+}
+.video-container{
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    
+}
+video{
+    height: 100%;
+    width: 100%;
+}
+.border{
+    border: 1px solid white;
+}
+
+.filters-container{
+    position: absolute;
+    height:30rem;
+    width:8rem;
+    top: calc((100vh - 30rem)/2);
+    left: 4rem;
+    display: flex;
+    flex-direction: column;
+}
+.filter{
+    height: 25%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-image: url('https://i.picsum.photos/id/563/200/200.jpg?hmac=AUY3PTIdje13MIMulUogg4h4AYMKO4XfeEZQaEGw8fQ');
+}
+.filter-layer{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top:0;
+    /* background-color: blue; */
+}
+.blue{
+    background-color: rgba(0, 0, 255, 0.116);
+    background-blend-mode: color-burn;
+}
+
+.red{
+    background-color: rgba(255, 0, 0, 0.26);
+    background-blend-mode: color-burn;
+}
+.orange{
+    background-color: rgba(255, 166, 0, 0.137);
+    background-blend-mode: color-burn;
+}
+.transparent{
+    background-color: rgba(255, 166, 0, 0);
+    background-blend-mode: color-burn;
+}
+
+.mode-container{
+    position: absolute;
+    top: calc(100vh - 10rem);
+    left: calc((100vw - 27rem)/2);
+    width: 27rem;
+    height: 6rem;
+    display: flex;
+    /* flex-direction: row; */
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+.mode{
+    /* height: 100%; */
+    transform: scale(2.5);
+    border: 1px solid white;
+    padding: 0.2rem;
+    border-radius: 20%;
+    /* width: calc(100% / 3); */
+    /* border: 1px solid blue; */
+    text-align: center;
+    text-justify: center;
+    vertical-align: middle;
+}
+.video-mode-container{
+    position: absolute;
+    height:30rem;
+    width:8rem;
+    top: calc((100vh - 30rem)/2);
+    right: 4rem;
+    /* display: flex; */
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    /* gap: 6rem; */
+}
+.audio-mode-container{
+    position: absolute;
+
+    top: calc((100vh - 17rem)/2);
+
+    left: calc((100vw - 17rem)/2);
+    display: flex;
+    /* display: none; */
+    /* flex-direction: column; */
+    /* justify-content: center; */
+}
+
+.timer{
+    color: white;
+    font-size: 2rem;
+}
+.record-btn-outline {
+    border: 5px solid white;
+    border-radius: 50%;;
+    height: 8rem;
+    padding: 1rem;
+}
+.capture-btn-outline {
+    border: 3px solid white;
+    background-color: white;
+    border-radius: 50%;
+    height: 8rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.audio-btn-outline{
+    border: 3px solid white;
+    background-color: white;
+    border-radius: 50%;
+    height: 17rem;
+    width: 17rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.camera-icon{
+    /* border: 1px solid pink; */
+}
+.record-btn{
+    /* border: 3px solid red; */
+    border-radius: 50%;
+    background-color: red;
+    height: 100%;
+    width: 100%;
+}
+.record-animation{
+    animation: record-animation;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+}
+
+@keyframes record-animation{
+    0% {
+        transform :scale(0.8);
+    }
+    50% { 
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(0.8);
+    }
+}

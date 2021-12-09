@@ -1,0 +1,154 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    height: 100%;
+    width: 100vw;
+}
+.title-container{
+    /* border: 1px solid blue; */
+    background-color:#45aaf2;
+    font-family: 'Roboto Mono';
+    color: #222f3e;
+    font-size: 4rem;
+    height: 8rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.mode-container{
+    /* border:1px solid black; */
+    height: 6rem;
+    width: 100vw;
+    
+    display: flex;
+    align-items: center;
+    background-color: #576574;
+    font-family: 'Roboto Mono';
+    color: #d1d8e0;
+    font-size:2rem;
+}
+.mode-container > .selected{
+    background-color: #222f3e;
+    /* border-top: 5px solid #45aaf2;  */
+}
+.mode-container > *{
+    height: 100%;
+    width: calc(100% / 3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.current-mode{
+    background-color: #222f3e;
+    height: calc(100% - 6rem - 8rem);
+    min-height: calc(100vh - 6rem - 8rem);
+    width: 100%;
+}
+.current-mode>*{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2rem;
+}
+
+.video-mode-container{
+    /* height: 100%;
+    width: 100%; */
+    display:flex;
+}
+.audio-mode-container{
+    display: none;
+    /* border:1px solid black; */
+}
+.image-mode-container{
+    display: none;
+    /* border:1px solid black; */
+}
+
+.item-box{
+    height: 17rem;
+    width: 20rem;
+    position: relative;
+    /* border-radius: 10%; */
+}
+.item-box>.material-icons{
+    color: #222f3e;
+    font-size: 2rem;
+}
+
+.thumbnail{
+    height: 100%;
+    width: 100%;
+    /* border: 1px solid yellow; */
+    /* border-radius: 10%; */
+    
+}
+.thumbnail *{
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+    /* border-radius: 10%; */
+}
+
+.download-btn{
+    background-color:white;
+    height: 3.5rem;
+    width: 3.5rem;
+    position: absolute;
+    /* top: 12rem;
+    left: 16rem; */
+    top: 50%;
+    left: 80%;
+    border-radius: 50%;
+
+    text-align: center;
+    padding: 0.7rem;
+}
+.delete-btn{
+    background-color:white;
+    height: 3.5rem;
+    width: 3.5rem;
+    position: absolute;
+    /* top: 16rem;
+    left: 16rem; */
+    top: 75%;
+    left: 80%;
+    border-radius: 50%;
+
+    text-align: center;
+    padding: 0.7rem;
+}
+
+.container>.material-icons{
+    font-size: 2.7rem;
+    color: #222f3e;
+}
+
+.back-btn{
+    /* border: 1px solid white; */
+    background-color:#d1d8e0;
+    position: fixed;
+    height: 4rem;
+    width: 4rem;
+    top:4%;
+    left: 4%;
+    
+    border-radius: 50%;
+    text-align: center; 
+    padding-top: 0.7rem;
+    cursor: pointer;
+    
+}

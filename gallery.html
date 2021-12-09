@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="gallery.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+    <div class="container">
+        <div class="title-container">Actual Gallery</div>
+        <div class="mode-container">
+            <div class="video-mode-selector selected">Videos</div>
+            <div class="image-mode-selector">Images</div>
+            <div class="audio-mode-selector">Audios</div>
+        </div>
+        <div class="current-mode">
+            <div class="video-mode-container selected">
+                <!-- <div class="item-box">
+                    <div class="thumbnail "></div>
+                    <div class="download-btn material-icons">file_download</div>
+                    <div class="delete-btn material-icons">delete</div>
+                </div> -->
+            </div>
+            <div class="audio-mode-container"></div>
+            <div class="image-mode-container"></div>
+        </div>
+        <div class="back-btn material-icons">arrow_back</div>
+    </div>
+    <script src="./db.js"></script>
+    <script src="./gallery.js"></script>
+    <script type="text/javascript">
+        let backBtn = document.querySelector('.back-btn');
+        backBtn.addEventListener('click',function(e){
+            location.assign('./index.html');
+        })
+    </script>
+</body>
+</html>

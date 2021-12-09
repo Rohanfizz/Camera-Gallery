@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title></title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<html>
+    <head>
+    </head>
+    <body>
+        <div class="video-container">
+            <video autoplay src="" ></video>
+        </div>
+        <div class="overlay-container">
+            <div class="filter-layer"></div>
+            <div class="filters-container">
+                <div class="filter blue"></div>
+                <div class="filter red"></div>
+                <div class="filter orange"></div>
+                <div class="filter transparent"></div>
+            </div>
+            <div class="mode-container">
+                <div class="video-mode mode material-icons">videocam</div>
+                <div class="audio-mode mode material-icons">keyboard_voice</div>
+                <div class="cancel-mode mode material-icons">photo</div>
+            </div>
+            <div class="video-mode-container">  
+                <div class="timer">00:00:00</div>
+                <div class="record-btn-outline"><div class="record-btn"></div></div>
+                <div class="capture-btn-outline">
+                    <div class="camera-icon material-icons" style="color:black;font-size: 4rem;">photo_camera</div>
+                </div>
+            </div>
+            <div class="audio-mode-container" style="display:none">
+                <div class="audio-btn-outline">
+                    <div class="material-icons" style="color:black;font-size: 14rem;">keyboard_voice</div>
+                </div>
+            </div>
+        </div>
+        <script src="https://unpkg.com/shortid-dist@1.0.5/dist/shortid-2.2.13.min.js"></script>
+        <script src="./db.js"></script>
+        <script src="./script.js"></script>
+        <script type="text/javascript">
+            let galleryBtn = document.querySelector('.cancel-mode');
+            galleryBtn.addEventListener('click',function(e){
+                    location.assign('./gallery.html');
+            })
+        </script>
+    </body>
+
+    
+</html>
