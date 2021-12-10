@@ -116,6 +116,7 @@ body{
 
     text-align: center;
     padding: 0.7rem;
+    cursor: pointer;
 }
 .delete-btn{
     background-color:white;
@@ -130,6 +131,7 @@ body{
 
     text-align: center;
     padding: 0.7rem;
+    cursor: pointer;
 }
 
 .container>.material-icons{
@@ -150,5 +152,13 @@ body{
     text-align: center; 
     padding-top: 0.7rem;
     cursor: pointer;
-    
 }
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+

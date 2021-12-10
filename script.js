@@ -48,7 +48,7 @@ async function startStream(constraints){
             let videoStore = dbTransaction.objectStore('video');
             let videoEntry = {
                 id: videoId,
-                url: videoURL
+                objectBlob: blob
             }
             videoStore.add(videoEntry);
         }else if(db && !isVideo){

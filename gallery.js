@@ -11,8 +11,8 @@ setTimeout(()=>{
                 let mediaElem = document.createElement('div');
                 mediaElem.className = 'item-box';
                 mediaElem.setAttribute('id',videoObj.id);
-
-                let url = videoObj.url;
+                let url = URL.createObjectURL(videoObj.objectBlob);
+                // let url = videoObj.url;
 
                 mediaElem.innerHTML = `
                 <div class="thumbnail"><video playsinline autoplay muted loop src='${url}'></video></div>
@@ -21,6 +21,14 @@ setTimeout(()=>{
                 `;
                 let videoModeContainer = document.querySelector('.video-mode-container');
                 videoModeContainer.appendChild(mediaElem);
+
+                let downloadBtn = mediaElem.querySelector('.download-btn');
+                let deleteBtn = mediaElem.querySelector('.delete-btn');
+
+                downloadBtn.addEventListener('click',downloadListner);
+                deleteBtn.addEventListener('click',deleteListner);
+
+
             })
         }
 
@@ -43,10 +51,16 @@ setTimeout(()=>{
                 `;
                 let imageModeContainer = document.querySelector('.image-mode-container');
                 imageModeContainer.appendChild(mediaElem);
+
+                let downloadBtn = mediaElem.querySelector('.download-btn');
+                let deleteBtn = mediaElem.querySelector('.delete-btn');
+                downloadBtn.addEventListener('click',downloadListner);
+                deleteBtn.addEventListener('click',deleteListner);
             })
         }
     }
 },100)
+
 let videoSelector = document.querySelector('.video-mode-selector');
 let imageSelector = document.querySelector('.image-mode-selector');
 let audioSelector = document.querySelector('.audio-mode-selector');
@@ -65,3 +79,49 @@ document.querySelector(`.${target.className}`).classList.add(`selected`);
 let whichMode = target.className.split('-')[0];
 document.querySelector(`.${whichMode}-mode-container`).style.display = `flex`;
 })
+
+
+function downloadListner(e){
+    // console.log(e.target);
+    // console.log(e.target.parentElement);
+    let myType = e.target.parentElement.getAttribute('id').split('-')[0];
+    let id = e.target.parentElement.getAttribute('id');
+    myType = (myType == 'vid'?'video':(myType == 'img' ?'image':'audio'));
+    
+    let dbTransaction  = db.transaction(myType,'readwrite');
+    let objectStore = dbTransaction.objectStore(myType);
+    let objectRequest = objectStore.get(id);
+    objectRequest.onsuccess = (e) =>{
+        let result = objectRequest.result;
+        // console.log(result);
+        if(myType == 'video'){
+            let url = URL.createObjectURL(result.objectBlob);
+            let a = document.createElement('a');
+            a.href = url;
+            a.download = "stream.avi";
+            a.click();
+        }else if(myType == 'audio'){
+
+        }else if(myType == 'image'){
+            let url = result.url;
+            let a = document.createElement('a');
+            a.href = url;
+            a.download = "image.jpg";
+            a.click();
+        }
+    }
+}
+function deleteListner(e){
+    console.log('asd');
+    let myType = e.target.parentElement.getAttribute('id').split('-')[0];
+    let id = e.target.parentElement.getAttribute('id');
+    myType = (myType == 'vid'?'video':(myType == 'img' ?'image':'audio'));
+
+    let transaction = db.transaction(myType,'readwrite');
+    let objectStore = transaction.objectStore(myType);
+    let request = objectStore.get(id);
+    request.onsuccess = (e) => {
+        objectStore.delete(id);
+        document.querySelector(`[id=${id}]`).remove();
+    }
+}
